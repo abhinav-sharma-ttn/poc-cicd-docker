@@ -12,11 +12,6 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
-        stage('Build Docker image') {
-            steps {
-                sh 'docker build -t abhinavsharma068/poc-cicd-docker .'
-            }
-        }
         stage('Stop and Clean old container and image') {
             steps {
                 sh '''
@@ -37,6 +32,11 @@ pipeline {
                     echo "No old image found"
                 fi
                 '''
+            }
+        }
+        stage('Build Docker image') {
+            steps {
+                sh 'docker build -t abhinavsharma068/poc-cicd-docker .'
             }
         }
         stage('Run new container') {
