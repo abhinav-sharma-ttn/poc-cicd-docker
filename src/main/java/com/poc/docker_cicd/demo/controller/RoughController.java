@@ -10,7 +10,7 @@ public class RoughController {
 
     @GetMapping("/name")
     public String printName() {
-        return "Abhinav Sharma Jiiiii";
+        return "Abhinav Sharma";
     }
 
 }
